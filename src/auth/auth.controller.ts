@@ -8,7 +8,7 @@ export class AuthController {
 
   @Post('register')
   register(@Body() registerDto: RegisterDto) {
-    const result = this.authService.registerUser(registerDto);
-    return result;
+    const token = this.authService.registerUser(registerDto);
+    return token;
   }
 }
