@@ -21,10 +21,10 @@ export class AuthService {
       password: hash,
     });
 
-    const payload = { sub: user._id };
+    const payload = { sub: user._id.toString() };
     const token = await this.jwtService.signAsync(payload);
 
-    return { token: token };
+    return { access_token: token };
   }
   async loginUser(loginUserDto: LoginDto) {
     const user = await this.userService.findByEmail(loginUserDto.email);
